@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+ {% block content %}
+ <div class="new_post">
+     <h1>Login</h1>
+     <form method="post">
+         {% csrf_token %}
+         Username : <input type="text" name="username"/><br>
+         Password : <input type="password" name="password"/>
+         {% for msg in messages%}
+            <p>{{msg }}</p>
+         {%endfor%}
+         {{form.errors}}
+         <button>Login</button>
+         <h5>Don't have a account ?<a href="{% url 'register' %}">Sign Up</a></h5>
+     </form>
+
+ </div>
+ {% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>home</title>
+        {% load static %}
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}" />
+    </head>
+    <body>
+        <header class="site_header" style="color:white" >
+            <div class="site_brand">
+                <h1><a href="{% url 'home' %}"> Awesome Blog</a></h1>
+                <h3><a href="{% url 'post-new' %}"> + Add New Post</a></h3>
+                {% if user.is_authenticated %}
+                    <h2>Welcome {{user}}</h2>
+                    <h4><a href="{% url 'logout' %}"> Logout</a></h4>
+                {% else%}
+                    <h4><a href="{% url 'login' %}"> Login</a></h4>
+                    <h4><a href="{% url 'register' %}"> Register</a></h4>
+                {%endif%}
+
+            </div>
+        </header>
+
+        <div class="content">
+            {% block content %}
+                <h2>My Awesome Blog Page</h2>
+            {% endblock %}
+        </div>
+        <!--<div class="sidebar">
+            <div class="widget">
+                <h1 class="widget_title">Sidebar Title</h1>
+            </div>
+        </div>-->
+    </body>
+</html>

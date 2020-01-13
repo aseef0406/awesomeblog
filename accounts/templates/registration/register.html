@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+ {% block content %}
+ <div class="new_post">
+     <h1>Register</h1>
+     <form method="post">
+         {% csrf_token %}
+         {{form.username.label}}
+         {{form.username}}
+         {{form.email.label}}
+         {{form.email}}
+         {{form.password1.label}}
+         {{form.password1}}
+         {{form.password2.label}}
+         {{form.password2  }}
+         {{form.errors}}
+         <button>Register</button>
+         <h5>If you have account <a href="{% url 'login' %}">Sign In</a></h5>
+     </form>
+
+ </div>
+ {% endblock %}
